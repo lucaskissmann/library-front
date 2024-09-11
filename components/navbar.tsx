@@ -16,19 +16,17 @@ const Navbar = () => {
 					<Link key={"bookclub"} href={"/"} className="pt-2">
 						O que é Bookclub?
 					</Link>
-					<Combobox/>
 					<Link key={"bookclub"} href={"/"} className="pt-2">
 						Contato
 					</Link>
 				</nav>
 			</section>
 			<section className="flex items-center gap-4 pr-[184px]">
-				<Button className="bg-[#FFD166] text-black font-bold hover:bg-[#ebbb4c]">
-					Criar conta
-				</Button>
-				<Button className="bg-[#0B78D0] text-white font-bold border border-white hover:bg-[#0767b6]">
-					Login
-				</Button>
+				<Link key={"admin"} href={"/admin"}>
+					<Button className="bg-[#FFD166] text-black font-bold hover:bg-[#ebbb4c]">
+						Administrador
+					</Button>
+				</Link>
 			</section>
 		</div>
 	)
