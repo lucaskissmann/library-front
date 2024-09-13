@@ -1,4 +1,9 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table"
+import { ArrowUpDown } from "lucide-react";
+import CellAction from "./cell-actions";
 
 export type AuthorColumns = {
   id: string;
@@ -11,18 +16,29 @@ export type AuthorColumns = {
 export const columns: ColumnDef<AuthorColumns>[] = [
   {
     accessorKey: "name",
-    header: "Nome",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
+          Nome
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
   },
   {
     accessorKey: "age",
-    header: "Ano Nascimento",
+    header: "Idade",
   },
   {
     accessorKey: "cpf",
     header: "CPF",
   },
   {
-    accessorKey: "gender",
-    header: "Sexo",
-  },
+    id: "actions",
+    header: "Ações",
+    cell: ({ row }) => <CellAction data={row.original} />
+  }
 ]
