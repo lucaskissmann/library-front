@@ -82,12 +82,11 @@ const FormAuthor = () => {
 						name="age"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Ano de Nascimento</FormLabel>
+								<FormLabel>Idade</FormLabel>
 								<FormControl>
 									<Input 
 										type="number"
-
-										placeholder="Digite o ano de nascimento do autor" 
+										placeholder="Digite a idade do autor" 
 										{...field}
 									/>
 								</FormControl>
