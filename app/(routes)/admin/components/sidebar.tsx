@@ -16,9 +16,9 @@ const SideBar = () => {
 					<span className="pl-3">Gerenciador</span>
 				</div>
 				<Separator />
-				<SideBarButton label="Gerenciar Livros" href="/admin/books" />
-				<SideBarButton label="Gerenciar Locatários" href="/admin/renters" />
 				<SideBarButton label="Gerenciar Autores" href="/admin/authors" />
+				<SideBarButton label="Gerenciar Locatários" href="/admin/renters" />
+				<SideBarButton label="Gerenciar Livros" href="/admin/books" />
 			</section>
 		</div>
 	);
