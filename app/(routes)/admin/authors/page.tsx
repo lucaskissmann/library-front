@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { AuthorColumns, columns } from "./components/columns";
+import { columns } from "./components/columns";
 import axios from "axios";
 import { API_BASE_URL } from "@/config";
 import { DataTable } from "@/components/ui/data-table";
 import RegisterButton from "@/components/register-button";
+import { Author } from "@/types/Author";
 
-async function getData(): Promise<AuthorColumns[]> {
+async function getData(): Promise<Author[]> {
 	try {
 		const response = await axios.get(`${API_BASE_URL}/authors`);
 		console.log("Autores:", response.data);

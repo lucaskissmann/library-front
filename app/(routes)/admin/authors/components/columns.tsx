@@ -4,16 +4,9 @@ import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table"
 import { ArrowUpDown } from "lucide-react";
 import CellAction from "./cell-actions";
+import { Author } from "@/types/Author";
 
-export type AuthorColumns = {
-  id: string;
-  name: number;
-  age: number;
-  cpf: string;
-	gender: string;
-}
-
-export const columns: ColumnDef<AuthorColumns>[] = [
+export const columns: ColumnDef<Author>[] = [
   {
     accessorKey: "name",
     header: ({ column }) => {
