@@ -9,7 +9,6 @@ import { Author } from "@/types/Author";
 async function getData(): Promise<Author[]> {
 	try {
 		const response = await axios.get(`${API_BASE_URL}/authors`);
-		console.log("Autores:", response.data);
 		return response.data;
 	} catch (error) {
 		console.error("Erro ao realizar a busca:", error);

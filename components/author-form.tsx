@@ -82,7 +82,8 @@ const AuthorForm: React.FC<AuthorFormProps> = ({
     }
   }
 
-  function handleCancel() {
+  function handleCancel(event: React.MouseEvent) {
+    event.preventDefault();
     if(onClose) {
       onClose();
     }
