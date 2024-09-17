@@ -1,5 +1,5 @@
 import Image from "next/image";
-import FormAuthor from "./components/form-author";
+import AuthorForm from "@/components/author-form";
 
 const RegisterAuthor = () => {
 	return (
@@ -9,7 +9,7 @@ const RegisterAuthor = () => {
 				<section className="w-1/3 pr-8">
 					<h2 className="text-2xl ">Criar Perfil</h2>
 					<h3 className="text-xl text-muted-foreground">Informações pessoais</h3>
-					<FormAuthor />
+					<AuthorForm isEdit={false}/>
 				</section>
 				<section className="w-1/2 flex justify-center items-center">
 					<Image src={"/female-avatar-home.svg"} height={200} width={200} alt="Imagem de um personagem feminino"/>
