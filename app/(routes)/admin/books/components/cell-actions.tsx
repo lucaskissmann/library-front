@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Author } from "@/types/Author";
 import axios from "axios";
 import { API_BASE_URL } from "@/config";
 import { useRouter } from "next/navigation";
@@ -8,9 +7,11 @@ import toast from "react-hot-toast";
 import AlertModal from "@/components/modals/alert-modal";
 import UpdateModal from "@/components/modals/update-modal";
 import AuthorForm from "@/components/author-form";
+import { Book } from "@/types/Book";
+import BookForm from "@/components/book-form";
 
 interface CellActionProps {
-	data: Author;
+	data: Book;
 }
 
 const CellAction: React.FC<CellActionProps> = ({ data }) => {
@@ -23,7 +24,7 @@ const CellAction: React.FC<CellActionProps> = ({ data }) => {
 	const onDelete = async () => {
     try {
       setLoading(true)
-      await axios.delete(`${API_BASE_URL}/authors/${data.id}`)
+      await axios.delete(`${API_BASE_URL}/books/${data.id}`)
       router.refresh()
       toast.success('Autor removido com sucesso')
     } catch (error) {
@@ -41,15 +42,15 @@ const CellAction: React.FC<CellActionProps> = ({ data }) => {
         onClose={() => setOpen(false)}
         onConfirm={onDelete}
         loading={loading}
-        description={`O autor ${data.name} será removido`}
+        description={`O livro '${data.title}' será removido`}
       />
 			<UpdateModal
         isOpen={isUpdateOpen}
         onClose={() => setIsUpdateOpen(false)}
-				title={`Editar Autor`}
-        description={`Você está editando o autor ${data.name}`}
+				title={`Editar Livro`}
+        description={`Você está editando o livro ${data.title}`}
       >
-				<AuthorForm initialData={data} onClose={() => setIsUpdateOpen(false)} isEdit={true} />
+				<BookForm initialData={data} onClose={() => setIsUpdateOpen(false)} isEdit={true} />
 			</UpdateModal>
 			<div className="flex">
 				<Button 

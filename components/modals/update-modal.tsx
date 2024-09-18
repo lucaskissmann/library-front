@@ -1,24 +1,21 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Button } from '../ui/button'
 import { Modal } from '../ui/modal'
-import AuthorForm from '../author-form';
-import { Author } from '@/types/Author';
 
 interface UpdateModalProps {
   isOpen: boolean;
   onClose: () => void;
 	title: string;
   description: string;
-	data: Author;
+  children: React.ReactNode;
 }
 const UpdateModal: React.FC<UpdateModalProps> = ({
   isOpen,
   onClose,
 	title,
   description,
-	data,
+  children,
 }) => {
   const [isMounted, setIsMounted] = useState(false)
 
@@ -37,7 +34,7 @@ const UpdateModal: React.FC<UpdateModalProps> = ({
       isOpen={isOpen}
       onClose={onClose}
     >
-			<AuthorForm initialData={data} onClose={onClose} isEdit={true} />
+      {children}
     </Modal>
   )
 }
