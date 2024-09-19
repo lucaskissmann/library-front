@@ -19,9 +19,12 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { Book, BookState, Category } from "@/types/Book";
 import { Author } from "@/types/Author";
-import { DatePicker } from "./ui/date-picker";
 import { useEffect, useState } from "react";
-import MultiSelectAuthors from "./ui/multi-select-authors";
+import { MultiSelectAuthors } from "./ui/multi-select-authors";
+import { Select } from "./ui/select";
+import CategorySelect from "./category-selector";
+import { DatePickerComponent } from "./ui/date-picker";
+import { format } from "date-fns";
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -29,8 +32,10 @@ const formSchema = z.object({
   }),
   category: z.enum(Object.values(Category) as [Category, ...Category[]]),
   isbn: z.coerce.string(),
-  publicationDate: z.date(),
-  authors: z.array(z.string())
+  publicationDate: z.string(),
+  authorIds:  z
+  .array(z.number().min(1))
+  .min(1, "Selecione pelo menos um autor."),
 });
 
 interface BookFormProps {
@@ -45,20 +50,6 @@ const BookForm: React.FC<BookFormProps> = ({
   isEdit = false
 }) => {
   const router = useRouter();
-  const [authors, setAuthors] = useState<Author[]>([]);
-
-  useEffect(() => {
-    async function fetchAuthors() {
-      try {
-        const response = await axios.get(`${API_BASE_URL}/authors`);
-        setAuthors(response.data);
-      } catch (error) {
-        console.error("Erro ao buscar autores: ", error);
-      }
-    }
-
-    fetchAuthors();
-  }, []);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -66,12 +57,15 @@ const BookForm: React.FC<BookFormProps> = ({
       title: initialData?.title || "",
       category: initialData?.category,
       isbn: initialData?.isbn,
-      authors: initialData?.authors.map(author => author.id) || [],
+      publicationDate: initialData?.publicationDate,
+      authorIds: initialData?.authors?.map(author => author.id) || [], 
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log("valores: ", values)
+    console.log(form.formState.errors);
+
+    console.log("valores: ", values);
     
     // try {
     //   if (isEdit && initialData?.id) {
@@ -140,38 +134,52 @@ const BookForm: React.FC<BookFormProps> = ({
               </FormItem>
             )}
           />
-          <FormField
+          {/* <FormField
             control={form.control}
             name="publicationDate"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Data de Publicação</FormLabel>
                 <FormControl>
-                  <DatePicker
+                  <DatePickerComponent
                     selected={field.value}
-                    onSelect={field.onChange}
+                    onSelect={(date) => field.onChange(date ? format(date, "yyyy/MM/dd") : "")}
                   />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
-          />
-					{/* <FormField
+          /> */}
+					<FormField
 						control={form.control}
-						name="authors"
+						name="authorIds"
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel>Autores</FormLabel>
 								<FormControl>
-                  <MultiSelectAuthors 
-                    value={field.value || []}
-                    onChange={(selected) => field.onChange(selected)}  
+                  <MultiSelectAuthors
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                    placeholder="Selecione os autores"
                   />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
 						)}
-					/>  */}
+					/> 
+          <FormField
+            control={form.control}
+            name="category"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Categoria</FormLabel>
+                <FormControl>
+                  <CategorySelect value={field.value} onChange={field.onChange} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <div className={`flex gap-2 ${isEdit ? 'justify-center': ''}`}>
             <Button variant="cancel" className="px-16 py-2" onClick={handleCancel}>
               Cancelar

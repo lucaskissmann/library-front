@@ -58,28 +58,29 @@ const AuthorForm: React.FC<AuthorFormProps> = ({
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    try {
-      if (isEdit && initialData?.id) {
-        const response = await axios.put(`${API_BASE_URL}/authors/${initialData.id}`, values);
-        console.log("Sucesso: ", response.data);
-        toast.success("Autor atualizado com sucesso");
-				if(onClose) {
-					onClose();
-				}
-      } else {
-        const response = await axios.post(`${API_BASE_URL}/authors`, values);
-        console.log("Sucesso: ", response.data);
-        toast.success("Autor criado com sucesso");
-				router.push("/admin/authors");
-      }
+    console.log(values);
+    // try {
+    //   if (isEdit && initialData?.id) {
+    //     const response = await axios.put(`${API_BASE_URL}/authors/${initialData.id}`, values);
+    //     console.log("Sucesso: ", response.data);
+    //     toast.success("Autor atualizado com sucesso");
+		// 		if(onClose) {
+		// 			onClose();
+		// 		}
+    //   } else {
+    //     const response = await axios.post(`${API_BASE_URL}/authors`, values);
+    //     console.log("Sucesso: ", response.data);
+    //     toast.success("Autor criado com sucesso");
+		// 		router.push("/admin/authors");
+    //   }
 
-      router.refresh();
+    //   router.refresh();
 
-    } catch (error: any) {
-      const errorMessage = error.response?.data?.message || "Erro ao enviar dados";
-      console.error("Erro ao enviar dados: ", errorMessage);
-      toast.error(errorMessage);
-    }
+    // } catch (error: any) {
+    //   const errorMessage = error.response?.data?.message || "Erro ao enviar dados";
+    //   console.error("Erro ao enviar dados: ", errorMessage);
+    //   toast.error(errorMessage);
+    // }
   }
 
   function handleCancel(event: React.MouseEvent) {
