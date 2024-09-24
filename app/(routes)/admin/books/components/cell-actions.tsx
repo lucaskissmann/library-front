@@ -6,9 +6,8 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import AlertModal from "@/components/modals/alert-modal";
 import UpdateModal from "@/components/modals/update-modal";
-import AuthorForm from "@/components/author-form";
 import { Book } from "@/types/Book";
-import BookForm from "@/components/book-form";
+import BookUiForm from "@/components/book-ui-form";
 
 interface CellActionProps {
 	data: Book;
@@ -26,9 +25,9 @@ const CellAction: React.FC<CellActionProps> = ({ data }) => {
       setLoading(true)
       await axios.delete(`${API_BASE_URL}/books/${data.id}`)
       router.refresh()
-      toast.success('Autor removido com sucesso')
+      toast.success('Livro removido com sucesso')
     } catch (error) {
-      toast.error('Não foi possível remover o autor.')
+      toast.error('Não foi possível remover o livro.' + error)
     } finally {
       setLoading(false)
       setOpen(false)
@@ -50,7 +49,7 @@ const CellAction: React.FC<CellActionProps> = ({ data }) => {
 				title={`Editar Livro`}
         description={`Você está editando o livro ${data.title}`}
       >
-				<BookForm initialData={data} onClose={() => setIsUpdateOpen(false)} isEdit={true} />
+				<BookUiForm initialData={data} onClose={() => setIsUpdateOpen(false)} isEdit={true} />
 			</UpdateModal>
 			<div className="flex">
 				<Button 
