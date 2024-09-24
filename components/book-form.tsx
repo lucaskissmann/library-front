@@ -32,7 +32,7 @@ const formSchema = z.object({
   }),
   category: z.enum(Object.values(Category) as [Category, ...Category[]]),
   isbn: z.coerce.string(),
-  publicationDate: z.string(),
+  publicationDate: z.date(),
   authorIds:  z
   .array(z.number().min(1))
   .min(1, "Selecione pelo menos um autor."),

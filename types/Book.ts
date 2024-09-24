@@ -17,7 +17,7 @@ export type Book = {
 	id: number;
 	category: Category;
 	isbn: string;
-	publicationDate: string;
+	publicationDate: Date;
 	state: BookState;
 	title: string;
 	authors: Author[];
