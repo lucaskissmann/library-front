@@ -5,6 +5,7 @@ import { ColumnDef } from "@tanstack/react-table"
 import { ArrowUpDown } from "lucide-react";
 import { Book } from "@/types/Book";
 import CellAction from "./cell-actions";
+import StateCell from "./state-cell";
 
 export const columns: ColumnDef<Book>[] = [
   {
@@ -36,6 +37,7 @@ export const columns: ColumnDef<Book>[] = [
   {
     accessorKey: "state",
     header: "Status",
+    cell: ({ row }) => <StateCell state={row.original.state} />
   },
   {
     id: "actions",
