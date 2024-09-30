@@ -55,6 +55,12 @@ export function DataTable<TData, TValue>({
       columnFilters,
       sorting,
     },
+    filterFns: {
+      emailFilter: (row, columnId, value) => {
+        const email = row.original.renter.email; 
+        return email.toLowerCase().includes(value.toLowerCase()); 
+      },
+    },
   })
 
   return (

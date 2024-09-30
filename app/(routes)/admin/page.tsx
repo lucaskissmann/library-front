@@ -7,7 +7,7 @@ const AdminPage = () => {
 			<section>
 				<h1 className="text-4xl font-light">Serviços</h1>
 				<div className="flex">
-					<CardAdmin label="Novo Aluguel" href="/admin" icon={<LogInIcon/>} />
+					<CardAdmin label="Novo Aluguel" href="/admin/rentals" icon={<LogInIcon/>} />
 				</div>
 				<h1 className="text-4xl font-light mt-10">Administrador</h1>
 				<div className="flex gap-9">
