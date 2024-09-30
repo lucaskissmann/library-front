@@ -40,7 +40,7 @@ const AlertModal: React.FC<AlertModalProps> = ({
           Cancelar
         </Button>
         <Button disabled={loading} variant="confirm" onClick={onConfirm}>
-          Excluir
+          Confirmar
         </Button>
       </div>
     </Modal>

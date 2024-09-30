@@ -20,10 +20,11 @@ import { Book, Category } from "@/types/Book";
 import { LocalizationProvider, DatePicker, DateField } from "@mui/x-date-pickers";
 import dayjs, { Dayjs } from "dayjs";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import MultiSelect from "./ui/multi-select";
+import MultiSelect from "./ui/multi-select-authors-ui";
 import { Button } from "./ui/button";
 import CategorySelect from "./category-selector";
 import { MultiSelectAuthors } from "./ui/multi-select-authors";
+import MultiSelectAuthorsUI from "./ui/multi-select-authors-ui";
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -147,7 +148,7 @@ const BookUiForm: React.FC<BookFormProps> = ({
               placeholder="Selecione os autores"
             />
           ) : (
-            <MultiSelect
+            <MultiSelectAuthorsUI
               onChange={field.onChange} 
               defaultValue={field.value}
             />
@@ -155,7 +156,7 @@ const BookUiForm: React.FC<BookFormProps> = ({
           <FormHelperText>{form.formState.errors.authorIds?.message}</FormHelperText>
         </FormControl>
         )}
-        />
+      />
       <Controller
         name="category"
         control={form.control}

@@ -27,7 +27,7 @@ const CellAction: React.FC<CellActionProps> = ({ data }) => {
       router.refresh()
       toast.success('Livro removido com sucesso')
     } catch (error) {
-      toast.error('Não foi possível remover o livro.' + error)
+      toast.error('Não foi possível remover o livro.')
     } finally {
       setLoading(false)
       setOpen(false)

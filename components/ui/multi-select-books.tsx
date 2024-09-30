@@ -1,29 +1,29 @@
 
 import { API_BASE_URL } from "@/config";
-import { Author } from "@/types/Author";
+import { Book } from "@/types/Book";
 import { Checkbox, FormControl, InputLabel, ListItemText, MenuItem, OutlinedInput, Select, SelectChangeEvent } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-interface MultiSelectProps {
-  onChange: (selectedAuthors: number[]) => void;
+interface MultiSelectBooks {
+  onChange: (selectedBooks: number[]) => void;
   defaultValue?: number[];
 }
 
-const MultiSelect: React.FC<MultiSelectProps> = ({
+const MultiSelectBooks: React.FC<MultiSelectBooks> = ({
 	onChange, 
 	defaultValue = [] 
 }) => {
-	const [authors, setAuthors] = useState<Author[]>([]);
-	const [selectedAuthors, setSelectedAuthors] = useState<number[]>(defaultValue);
+	const [books, setBooks] = useState<Book[]>([]);
+	const [selectedBooks, setSelectedBooks] = useState<number[]>(defaultValue);
 
   useEffect(() => {
     async function fetchAuthors() {
       try {
-        const response = await axios.get<Author[]>(`${API_BASE_URL}/authors`);
-        setAuthors(response.data);
+        const response = await axios.get<Book[]>(`${API_BASE_URL}/books?state=AVAILABLE`);
+        setBooks(response.data);
       } catch (error) {
-        console.error("Erro ao buscar autores: ", error);
+        console.error("Erro ao buscar livros: ", error);
       }
     }
 
@@ -31,7 +31,7 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
   }, []);
 
 	useEffect(() => {
-    setSelectedAuthors(defaultValue); 
+    setSelectedBooks(defaultValue); 
 		console.log(defaultValue);
   }, [defaultValue]);
 
@@ -41,25 +41,23 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
     } = event;
 
     const newSelectedValues = typeof value === "string" ? value.split(",").map(Number) : value;
-    setSelectedAuthors(newSelectedValues);
+    setSelectedBooks(newSelectedValues);
     onChange(newSelectedValues);
   };
 
 	return (
 		<FormControl className="relative z-50 w-full">
-			<InputLabel id="demo-multiple-checkbox-label">Autores</InputLabel>
+			<InputLabel >Livros</InputLabel>
 			<Select
-				labelId="demo-multiple-checkbox-label"
-				id="demo-multiple-checkbox"
 				multiple
-				value={selectedAuthors}
+				value={selectedBooks}
 				onChange={handleChange}
-				input={<OutlinedInput label="Autores" />}
+				input={<OutlinedInput label="Livros" />}
 				renderValue={(selected) =>
 					selected
 						.map((id) => {
-							const author = authors.find((author) => author.id === id);
-							return author ? author.name : id;
+							const book = books.find((book) => book.id === id);
+							return book ? book.title : id;
 						})
 						.join(', ')
 				}
@@ -78,10 +76,10 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
           },
         }}
 			>
-				{authors.map((author) => (
-					<MenuItem key={author.id} value={author.id}>
-						<Checkbox checked={selectedAuthors.includes(author.id)} />
-						<ListItemText primary={author.name} />
+				{books.map((book) => (
+					<MenuItem key={book.id} value={book.id}>
+						<Checkbox checked={selectedBooks.includes(book.id)} />
+						<ListItemText primary={book.title} />
 					</MenuItem>
 				))}
 			</Select>
@@ -89,4 +87,4 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
   );
 }
 
-export default MultiSelect;
+export default MultiSelectBooks;

@@ -15,7 +15,7 @@ async function getData(): Promise<Renter[]> {
 	}
 }
 
-const BookAdmin = async () => {
+const RenterAdmin = async () => {
 	const data = await getData();
 	return (
 		<div className="mx-20 mt-16">
@@ -33,4 +33,4 @@ const BookAdmin = async () => {
 	);
 }
 
-export default BookAdmin;
+export default RenterAdmin;

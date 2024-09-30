@@ -9,8 +9,8 @@ export enum Category {
 }
 
 export enum BookState {
-  DISPONÍVEL = "0",
-  INDISPONÍVEL = "1",
+  AVAILABLE = "AVAILABLE",
+  UNAVAILABLE = "UNAVAILABLE",
 }
 
 export type Book = {

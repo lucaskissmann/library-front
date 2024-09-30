@@ -28,7 +28,7 @@ const CellAction: React.FC<CellActionProps> = ({ data }) => {
       router.refresh()
       toast.success('Locatário removido com sucesso')
     } catch (error) {
-      toast.error('Não foi possível remover o locatário.' + error)
+      toast.error('Não foi possível remover o locatário.')
     } finally {
       setLoading(false)
       setOpen(false)

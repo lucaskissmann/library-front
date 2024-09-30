@@ -25,7 +25,7 @@ import { Renter } from "@/types/Renter";
 import { LocalizationProvider, DatePicker, DateField } from "@mui/x-date-pickers";
 import dayjs, { Dayjs } from "dayjs";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import MultiSelect from "./ui/multi-select";
+import MultiSelect from "./ui/multi-select-authors-ui";
 import { Button } from "./ui/button";
 import CategorySelect from "./category-selector";
 import { MultiSelectAuthors } from "./ui/multi-select-authors";
