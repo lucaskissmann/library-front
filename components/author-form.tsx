@@ -1,5 +1,6 @@
 "use client";
 
+import React from 'react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -25,9 +26,8 @@ const formSchema = z.object({
   name: z.string().min(2, {
     message: "O nome deve conter no mínimo 2 caracteres",
   }),
-  age: z.coerce.number().nonnegative({
-    message: "A idade não deve ser negativa",
-  }),
+  age: z.number({required_error: "A idade é obrigatória"}).or(z.string().regex(/^\d+$/).transform(Number)),
+  // age: z.coerce.number({required_error: "A idade é obrigatória"}).gte(0, "teste"),
   cpf: z.string().min(1, {
     message: "O CPF deve ser inserido",
   }),
@@ -51,7 +51,7 @@ const AuthorForm: React.FC<AuthorFormProps> = ({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: initialData?.name || "",
-      age: initialData?.age,
+      age: initialData?.age || undefined,
       cpf: initialData?.cpf || "",
       gender: initialData?.gender || "outros",
     },
