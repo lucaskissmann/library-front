@@ -47,8 +47,10 @@ const MultiSelectBooks: React.FC<MultiSelectBooks> = ({
 
 	return (
 		<FormControl className="relative z-50 w-full">
-			<InputLabel >Livros</InputLabel>
+			<InputLabel id="books-id">Livros</InputLabel>
 			<Select
+        data-testid="book-combobox"
+        labelId="books-id"
 				multiple
 				value={selectedBooks}
 				onChange={handleChange}

@@ -30,7 +30,7 @@ const formSchema = z.object({
   title: z.string().min(2, {
     message: "O título deve conter no mínimo 2 caracteres",
   }),
-  category: z.enum(Object.values(Category) as [Category, ...Category[]]),
+  category: z.enum(Object.values(Category) as [Category, ...Category[]], {required_error: "Selecione uma categoria" }),
   isbn: z.string().min(1, {
     message: "O ISBN é obrigatório",
   }),
@@ -161,16 +161,21 @@ const BookUiForm: React.FC<BookFormProps> = ({
         name="category"
         control={form.control}
         render={({ field }) => (
-        <FormControl fullWidth error={!!form.formState.errors.category} className="flex justify-center">
+          <>
           { isEdit ? (
-            <CategorySelect value={field.value} onChange={field.onChange} />
+            <FormControl fullWidth error={!!form.formState.errors.category} className="flex justify-center">
+              <CategorySelect value={field.value} onChange={field.onChange} />
+              <FormHelperText>{form.formState.errors.category?.message}</FormHelperText>
+            </FormControl>
             ) : (
-              <>
-                <InputLabel>Categoria</InputLabel>
+              <FormControl fullWidth error={!!form.formState.errors.category} className="flex justify-center">
+                <InputLabel id="categoria-id" htmlFor="category-select">Categoria</InputLabel>
                 <Select
+                  labelId="categoria-id"
+                  aria-label="categoria"
+                  id="category-select"
                   defaultValue={initialData?.category || ""}
                   {...field}
-                  // {...register("category")}
                   label="Categoria"
                   MenuProps={{
                     disablePortal: true,
@@ -193,11 +198,13 @@ const BookUiForm: React.FC<BookFormProps> = ({
                     </MenuItem>
                   ))}
                 </Select>
-              </>
-            ) }
-          <FormHelperText>{form.formState.errors.category?.message}</FormHelperText>
-        </FormControl>
-      )}/>
+                <FormHelperText>{form.formState.errors.category?.message}</FormHelperText>
+              </FormControl>
+            ) 
+          }
+          </>
+        )}
+      />
       <div className={`flex gap-2 ${isEdit ? 'justify-center': ''}`}>
         <Button variant="cancel" className="px-16 py-2" onClick={handleCancel}>
           Cancelar

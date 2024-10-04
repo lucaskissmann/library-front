@@ -12,7 +12,7 @@ const SideBar = () => {
 				<SideBarButton label="Aluguel" href="/admin/rentals" icon={<LogInIcon />} />
 				<Separator />
 				<div className="inline-flex items-center justify-start bg-transparent border-none text-black w-full whitespace-nowrap rounded-md text-sm font-medium px-4">
-					<IoMdSettings fill="grey" className="w-6 h-6"/>
+					<IoMdSettings fill="grey" className="w-6 h-6" name="settings"/>
 					<span className="pl-3">Gerenciador</span>
 				</div>
 				<Separator />

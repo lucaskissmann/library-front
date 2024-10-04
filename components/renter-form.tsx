@@ -118,7 +118,6 @@ const RenterForm: React.FC<RenterFormProps> = ({
     <Box className="mt-8 flex flex-col gap-4" component="form" onSubmit={form.handleSubmit(onSubmit, onErrors)}>
       <TextField
         label="Nome completo"
-				required
         variant="outlined"
         fullWidth
         {...form.register("name")}
@@ -132,7 +131,6 @@ const RenterForm: React.FC<RenterFormProps> = ({
           render={({ field }) => (
             <FormControl fullWidth error={!!form.formState.errors.birthDate}>
               <DateField 
-								required
                 label="Data de Nascimento"
                 value={field.value ? dayjs(field.value) : null}
                 onChange={(date: Dayjs | null) => {
@@ -149,7 +147,7 @@ const RenterForm: React.FC<RenterFormProps> = ({
 				control={form.control}
 				render={({ field }) => (
 					<FormControl>
-						<FormLabel className=" text-black">Gênero</FormLabel>
+						<FormLabel className=" text-black" aria-labelledby="gender-selector" id="gender-selector">Gênero</FormLabel>
 						<RadioGroup
 							onChange={field.onChange}
 							aria-labelledby="demo-radio-buttons-group-label"
@@ -167,7 +165,6 @@ const RenterForm: React.FC<RenterFormProps> = ({
 			<TextField
 				placeholder="Digite seu endereço de e-mail"
         label="Email"
-				required
         variant="outlined"
         fullWidth
         {...form.register("email")}
@@ -184,7 +181,6 @@ const RenterForm: React.FC<RenterFormProps> = ({
 								<TextField
 									placeholder="000.000.000-00"
 									label="CPF"
-									required
 									variant="outlined"
 									slotProps={{htmlInput: {maxLength: 14}}}
 									fullWidth
@@ -207,7 +203,6 @@ const RenterForm: React.FC<RenterFormProps> = ({
 						<FormControl fullWidth error={!!form.formState.errors.phone}>
 							<TextField
 								placeholder="(99) 99999-9999"
-								required
 								label="Telefone"
 								variant="outlined"
 								slotProps={{htmlInput: {maxLength: 15}}}

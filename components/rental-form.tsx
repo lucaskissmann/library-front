@@ -22,7 +22,7 @@ import MultiSelectBooks from "./ui/multi-select-books";
 import RenterSelector from "./renter-selector";
 
 const formSchema = z.object({
-  renterId: z.number().min(1, "Selecione um locatário."),
+  renterId: z.number({required_error: "Selecione um locatário."}).min(1, "Selecione um locatário."),
   bookIds: z
     .array(z.number().min(1))
     .min(1, "Selecione pelo menos um livro."),
@@ -104,21 +104,26 @@ const RentalForm: React.FC<RentalFormProps> = ({
         name="bookIds"
         control={form.control}
         render={({ field }) => (
-        <FormControl fullWidth error={!!form.formState.errors.bookIds}>
+          <>
           { isEdit ? (
-            <MultiSelectAuthors
-              onValueChange={field.onChange}
-              defaultValue={field.value}
-              placeholder="Selecione os livros"
-            />
+             <FormControl fullWidth error={!!form.formState.errors.bookIds}>
+              <MultiSelectAuthors
+                onValueChange={field.onChange}
+                defaultValue={field.value}
+                placeholder="Selecione os livros"
+              />
+              <FormHelperText>{form.formState.errors.bookIds?.message}</FormHelperText>
+            </FormControl>
           ) : (
+            <FormControl fullWidth error={!!form.formState.errors.bookIds}>
             <MultiSelectBooks
               onChange={field.onChange} 
               defaultValue={field.value}
             />
+            <FormHelperText>{form.formState.errors.bookIds?.message}</FormHelperText>
+            </FormControl>
           )}
-          <FormHelperText>{form.formState.errors.bookIds?.message}</FormHelperText>
-        </FormControl>
+          </>
         )}
       />
       <Controller

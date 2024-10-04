@@ -18,7 +18,7 @@ interface CategorySelectProps {
 
 const CategorySelect: React.FC<CategorySelectProps> = ({ value, onChange }) => {
   return (
-    <Select value={value} onValueChange={onChange}>
+    <Select value={value} onValueChange={onChange} name="categorias">
       <SelectTrigger className="w-auto px-6">
         <SelectValue placeholder="Selecione uma categoria" />
       </SelectTrigger>
