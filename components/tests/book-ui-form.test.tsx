@@ -7,7 +7,6 @@ import BookUiForm from '../books/book-ui-form';
 import '@testing-library/jest-dom';
 import dayjs from 'dayjs';
 
-// Mock axios and next/router
 jest.mock('axios');
 const mockAxios = axios as jest.Mocked<typeof axios>;
 

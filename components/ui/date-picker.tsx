@@ -29,7 +29,7 @@ export function DatePickerComponent({ selected, onSelect }: DatePickerProps) {
         dateFormat="dd/MM/yyyy"
         showYearDropdown
         showMonthDropdown
-        dropdownMode="select" // Isso permite a seleção de ano/mês de forma rápida
+        dropdownMode="select"
         className="w-[280px] border p-2"
         placeholderText="Selecione uma Data"
         onKeyDown={(e) => e.preventDefault()} 

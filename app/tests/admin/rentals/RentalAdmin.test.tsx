@@ -3,7 +3,6 @@ import axios from "axios";
 import RentalAdmin from "@/app/(routes)/admin/rentals/page";
 import { useRouter } from "next/navigation";
 
-// Mock do axios
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 

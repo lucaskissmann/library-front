@@ -147,7 +147,6 @@ const RenterForm: React.FC<RenterFormProps> = ({
 						<RadioGroup
 							onChange={field.onChange}
 							aria-labelledby="demo-radio-buttons-group-label"
-							// defaultValue={"outros"}
 							value={field.value}
 						>
 							<FormControlLabel value="feminino" control={<Radio size="small" />} label="Feminino" />

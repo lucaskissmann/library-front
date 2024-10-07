@@ -27,7 +27,6 @@ const formSchema = z.object({
     message: "O nome deve conter no mínimo 2 caracteres",
   }),
   age: z.number({required_error: "A idade é obrigatória"}).or(z.string().regex(/^\d+$/).transform(Number)),
-  // age: z.coerce.number({required_error: "A idade é obrigatória"}).gte(0, "teste"),
   cpf: z.string().min(1, {
     message: "O CPF deve ser inserido",
   }),

@@ -3,7 +3,6 @@ import { render, screen } from "@testing-library/react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
-// Mock da biblioteca axios
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
