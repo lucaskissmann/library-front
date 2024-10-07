@@ -1,4 +1,4 @@
-import BookUiForm from "@/components/book-ui-form";
+import BookUiForm from "@/components/books/book-ui-form";
 import Image from "next/image";
 
 const RegisterBook = () => {

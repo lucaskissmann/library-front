@@ -3,7 +3,7 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import {act} from 'react';
-import AuthorForm from '../author-form';
+import AuthorForm from '../authors/author-form';
 
 import '@testing-library/jest-dom'
 

@@ -15,11 +15,11 @@ import toast from "react-hot-toast";
 import { LocalizationProvider, DatePicker, DateField } from "@mui/x-date-pickers";
 import dayjs, { Dayjs } from "dayjs";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { Button } from "./ui/button";
-import { MultiSelectAuthors } from "./ui/multi-select-authors";
+import { Button } from "../ui/button";
+import { MultiSelectAuthors } from "../ui/multi-select-authors";
 import { Rental } from "@/types/Rental";
-import MultiSelectBooks from "./ui/multi-select-books";
-import RenterSelector from "./renter-selector";
+import MultiSelectBooks from "../ui/multi-select-books";
+import RenterSelector from "../renters/renter-selector";
 
 const formSchema = z.object({
   renterId: z.number({required_error: "Selecione um locatário."}).min(1, "Selecione um locatário."),

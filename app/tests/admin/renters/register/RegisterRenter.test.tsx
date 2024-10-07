@@ -1,7 +1,7 @@
 import RegisterRenter from "@/app/(routes)/admin/renters/register/page";
 import { render, screen } from "@testing-library/react";
 
-jest.mock("@/components/renter-form", () => {
+jest.mock("@/components/renters/renter-form", () => {
   return function MockRenterForm() {
     return <div data-testid="mock-renter-form">Mock Renter Form</div>;
   };

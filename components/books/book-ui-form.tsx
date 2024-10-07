@@ -20,11 +20,11 @@ import { Book, Category } from "@/types/Book";
 import { LocalizationProvider, DatePicker, DateField } from "@mui/x-date-pickers";
 import dayjs, { Dayjs } from "dayjs";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import MultiSelect from "./ui/multi-select-authors-ui";
-import { Button } from "./ui/button";
+import MultiSelect from "../ui/multi-select-authors-ui";
+import { Button } from "../ui/button";
 import CategorySelect from "./category-selector";
-import { MultiSelectAuthors } from "./ui/multi-select-authors";
-import MultiSelectAuthorsUI from "./ui/multi-select-authors-ui";
+import { MultiSelectAuthors } from "../ui/multi-select-authors";
+import MultiSelectAuthorsUI from "../ui/multi-select-authors-ui";
 
 const formSchema = z.object({
   title: z.string().min(2, {

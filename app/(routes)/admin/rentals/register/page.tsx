@@ -1,4 +1,4 @@
-import RentalForm from "@/components/rental-form";
+import RentalForm from "@/components/rentals/rental-form";
 import Image from "next/image";
 
 const RegisterRental = () => {

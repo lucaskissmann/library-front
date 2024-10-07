@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import RentalForm from '../rental-form';
+import RentalForm from '../rentals/rental-form';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import dayjs from 'dayjs';

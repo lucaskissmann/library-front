@@ -3,7 +3,7 @@ import { render, screen, fireEvent, waitFor, within } from '@testing-library/rea
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { act } from 'react';
-import BookUiForm from '../book-ui-form';
+import BookUiForm from '../books/book-ui-form';
 import '@testing-library/jest-dom';
 import dayjs from 'dayjs';
 

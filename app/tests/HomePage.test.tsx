@@ -2,11 +2,11 @@ import { render, screen } from "@testing-library/react";
 import categories from "@/public/categories";
 import HomePage from "../(routes)/page";
 
-jest.mock("@/components/como-funciona", () => () => <div>Como Funciona Component</div>);
-jest.mock("@/components/download-app", () => () => <div>Download App Component</div>);
-jest.mock("@/components/faq", () => () => <div>FAQ Component</div>);
-jest.mock("@/components/principais-avaliacoes", () => () => <div>Principais Avaliacoes Component</div>);
-jest.mock("@/components/search-book", () => () => <div>Search Book Component</div>);
+jest.mock("@/components/home/como-funciona", () => () => <div>Como Funciona Component</div>);
+jest.mock("@/components/home/download-app", () => () => <div>Download App Component</div>);
+jest.mock("@/components/home/faq", () => () => <div>FAQ Component</div>);
+jest.mock("@/components/home/principais-avaliacoes", () => () => <div>Principais Avaliacoes Component</div>);
+jest.mock("@/components/home/search-book", () => () => <div>Search Book Component</div>);
 
 describe("HomePage", () => {
   beforeEach(() => {

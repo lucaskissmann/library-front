@@ -1,8 +1,8 @@
-import ComoFunciona from "@/components/como-funciona";
-import DownloadApp from "@/components/download-app";
-import FAQ from "@/components/faq";
-import PrincipaisAvaliacoes from "@/components/principais-avaliacoes";
-import SearchBook from "@/components/search-book";
+import ComoFunciona from "@/components/home/como-funciona";
+import DownloadApp from "@/components/home/download-app";
+import FAQ from "@/components/home/faq";
+import PrincipaisAvaliacoes from "@/components/home/principais-avaliacoes";
+import SearchBook from "@/components/home/search-book";
 import categories from "@/public/categories";
 import Image from "next/image";
 

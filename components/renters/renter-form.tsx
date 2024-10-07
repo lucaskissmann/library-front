@@ -25,13 +25,9 @@ import { Renter } from "@/types/Renter";
 import { LocalizationProvider, DatePicker, DateField } from "@mui/x-date-pickers";
 import dayjs, { Dayjs } from "dayjs";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import MultiSelect from "./ui/multi-select-authors-ui";
-import { Button } from "./ui/button";
-import CategorySelect from "./category-selector";
-import { MultiSelectAuthors } from "./ui/multi-select-authors";
+import { Button } from "../ui/button";
 import { insertMaskInCpf } from "@/functions/cpf";
 import { insertMaskInPhone } from "@/functions/phone";
-import { Gender } from "@/types/Author";
 import { mapGender } from "@/functions/mapGender";
 
 const formSchema = z.object({

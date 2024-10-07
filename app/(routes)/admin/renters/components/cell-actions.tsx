@@ -6,9 +6,9 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import AlertModal from "@/components/modals/alert-modal";
 import UpdateModal from "@/components/modals/update-modal";
-import BookUiForm from "@/components/book-ui-form";
+import BookUiForm from "@/components/books/book-ui-form";
 import { Renter } from "@/types/Renter";
-import RenterForm from "@/components/renter-form";
+import RenterForm from "@/components/renters/renter-form";
 
 interface CellActionProps {
 	data: Renter;

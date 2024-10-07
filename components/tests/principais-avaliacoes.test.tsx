@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import PrincipaisAvaliacoes from '../principais-avaliacoes';
+import PrincipaisAvaliacoes from '../home/principais-avaliacoes';
 
 describe('PrincipaisAvaliacoes', () => {
 	beforeEach(() => {

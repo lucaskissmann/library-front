@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import axios from "axios";
 import { API_BASE_URL } from "@/config";
-import SearchBook from "../search-book";
+import SearchBook from "../home/search-book";
 
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;

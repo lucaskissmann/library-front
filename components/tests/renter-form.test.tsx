@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import axios from "axios";
 import toast from "react-hot-toast";
-import RenterForm from "../renter-form";
+import RenterForm from "../renters/renter-form";
 import { useRouter } from "next/navigation";
 import dayjs from 'dayjs';
 import { act } from "react";

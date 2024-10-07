@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import AlertModal from "@/components/modals/alert-modal";
 import UpdateModal from "@/components/modals/update-modal";
 import { Book } from "@/types/Book";
-import BookUiForm from "@/components/book-ui-form";
+import BookUiForm from "@/components/books/book-ui-form";
 
 interface CellActionProps {
 	data: Book;

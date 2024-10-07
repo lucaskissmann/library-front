@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import RegisterAuthor from "@/app/(routes)/admin/authors/register/page";
 
-jest.mock("@/components/author-form", () => {
+jest.mock("@/components/authors/author-form", () => {
   return jest.fn(() => <div data-testid="author-form" />);
 });
 

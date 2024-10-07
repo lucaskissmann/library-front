@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import RegisterBook from "@/app/(routes)/admin/books/register/page";
 
-jest.mock("@/components/book-ui-form", () => {
+jest.mock("@/components/books/book-ui-form", () => {
   return function MockBookUiForm() {
     return <div data-testid="mock-book-ui-form">Mock Book UI Form</div>;
   };

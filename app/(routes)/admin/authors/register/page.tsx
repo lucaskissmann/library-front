@@ -1,5 +1,5 @@
 import Image from "next/image";
-import AuthorForm from "@/components/author-form";
+import AuthorForm from "@/components/authors/author-form";
 
 const RegisterAuthor = () => {
 	return (

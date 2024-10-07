@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import CardComoFunciona from "../card-como-funciona";
+import CardComoFunciona from "../home/card-como-funciona";
 
 describe("CardComoFunciona Component", () => {
   const cardProps = {

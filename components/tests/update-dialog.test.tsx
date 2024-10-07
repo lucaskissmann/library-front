@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { Author, Gender } from "@/types/Author";
-import UpdateDialog from "../update-dialog";
+import UpdateDialog from "../ui/update-dialog";
 import { useRouter } from 'next/navigation';
 
 jest.mock('next/navigation', () => ({

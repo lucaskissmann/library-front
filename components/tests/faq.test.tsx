@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import FAQ from "../faq";
+import FAQ from "../home/faq";
 
 describe("FAQ Component", () => {
   beforeEach(() => {

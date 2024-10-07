@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import AlertModal from "@/components/modals/alert-modal";
 import UpdateModal from "@/components/modals/update-modal";
-import AuthorForm from "@/components/author-form";
+import AuthorForm from "@/components/authors/author-form";
 
 interface CellActionProps {
 	data: Author;

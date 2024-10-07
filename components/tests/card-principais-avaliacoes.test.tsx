@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import CardPrincipaisAvaliacoes from "../card-principais-avaliacoes";
+import CardPrincipaisAvaliacoes from "../home/card-principais-avaliacoes";
 
 describe("CardPrincipaisAvaliacoes Component", () => {
   const cardProps = {

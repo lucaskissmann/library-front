@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ComoFunciona from "../como-funciona";
+import ComoFunciona from "../home/como-funciona";
 
 describe("ComoFunciona Component", () => {
   beforeEach(() => {

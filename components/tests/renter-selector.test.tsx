@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import axios from 'axios';
 import { API_BASE_URL } from '@/config';
-import RenterSelector from '../renter-selector';
+import RenterSelector from '../renters/renter-selector';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;

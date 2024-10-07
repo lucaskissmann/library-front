@@ -20,10 +20,10 @@ import toast from "react-hot-toast";
 import { Book, BookState, Category } from "@/types/Book";
 import { Author } from "@/types/Author";
 import { useEffect, useState } from "react";
-import { MultiSelectAuthors } from "./ui/multi-select-authors";
-import { Select } from "./ui/select";
+import { MultiSelectAuthors } from "../ui/multi-select-authors";
+import { Select } from "../ui/select";
 import CategorySelect from "./category-selector";
-import { DatePickerComponent } from "./ui/date-picker";
+import { DatePickerComponent } from "../ui/date-picker";
 import { format } from "date-fns";
 
 const formSchema = z.object({

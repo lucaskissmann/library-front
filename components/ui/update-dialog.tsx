@@ -1,5 +1,5 @@
 import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription, DialogHeader } from "@/components/ui/dialog";
-import AuthorForm from "./author-form";
+import AuthorForm from "../authors/author-form";
 import { Author } from "@/types/Author";
 
 interface UpdateDialogProps {

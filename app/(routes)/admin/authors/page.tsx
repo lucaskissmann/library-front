@@ -3,7 +3,7 @@ import { columns } from "./components/columns";
 import axios from "axios";
 import { API_BASE_URL } from "@/config";
 import { DataTable } from "@/components/ui/data-table";
-import RegisterButton from "@/components/register-button";
+import RegisterButton from "@/components/ui/register-button";
 import { Author } from "@/types/Author";
 
 async function getData(): Promise<Author[]> {

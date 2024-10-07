@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import DownloadApp from "../download-app";
+import DownloadApp from "../home/download-app";
 
 describe("DownloadApp Component", () => {
   beforeEach(() => {

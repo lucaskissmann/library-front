@@ -18,7 +18,7 @@ import {
 import categories from "@/public/categories"
 import { Check, ChevronDown, ChevronsUpDown } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { Button } from "./ui/button"
+import { Button } from "./button"
  
 
 const Combobox = () => {
